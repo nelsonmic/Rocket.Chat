@@ -14,10 +14,14 @@ type InviteUsersProps = {
 	error?: unknown;
 };
 
+type CopyClipboardType = {
+	copy: () => void
+};
+
 const InviteUsers = ({ onClickBack, onClickClose, onClickEdit, captionText, linkText = '', error }: InviteUsersProps) => {
 	const t = useTranslation();
 
-	const { copy } = useClipboardWithToast(linkText);
+	const { copy }: CopyClipboardType = useClipboardWithToast(linkText);
 
 	return (
 		<>
